@@ -25,7 +25,8 @@ class GraphRAGConfig:
 
     use_graphrag: bool = False
     method: str = "light"  # "light" or "general"
-    entity_types: List[str] = field(default_factory=lambda: ["组织", "人员", "地理位置", "事件", "类别"])
+    # 默认实体类型配置：更新为电池材料研发核心实体
+    entity_types: List[str] = field(default_factory=lambda: ["正极基体", "掺杂剂", "包覆相", "工艺参数", "性能指标", "失效机理"])
     resolution: bool = False
     community: bool = False
     max_entities_per_chunk: int = 50
@@ -83,7 +84,8 @@ class GraphRAGConfig:
 class GraphRAGConfigManager:
     """Manager for GraphRAG configuration validation and processing."""
 
-    DEFAULT_ENTITY_TYPES = ["组织", "人员", "地理位置", "事件", "类别"]
+    # 电池材料研发核心实体类型默认列表
+    DEFAULT_ENTITY_TYPES = ["正极基体", "掺杂剂", "包覆相", "工艺参数", "性能指标", "失效机理"]
     SUPPORTED_METHODS = ["light", "general"]
     
     @staticmethod

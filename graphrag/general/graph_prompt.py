@@ -14,14 +14,14 @@ Use {language} as output language. All entity names, descriptions, and relations
 1. Identify all entities. For each identified entity, extract the following information:
 - entity_name: Name of the entity in {language}. If the original name is in another language, translate it to {language}.
 - entity_type: One of the following types: [{entity_types}]
-- entity_description: Comprehensive description of the entity's attributes and activities in {language}
+- entity_description: Comprehensive description of the entity's attributes and activities in {language}. When quantitative parameters (e.g. chemical proportions, temperatures, capacities, or retention rates) are present, include them in the description.
 Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>
 
 2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
 For each pair of related entities, extract the following information:
 - source_entity: name of the source entity, as identified in step 1
 - target_entity: name of the target entity, as identified in step 1
-- relationship_description: explanation in {language} as to why you think the source entity and the target entity are related to each other
+- relationship_description: explanation in {language} as to why you think the source entity and the target entity are related to each other, including any specific quantitative conditions or testing metrics mentioned in the text.
 - relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity
  Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
 
